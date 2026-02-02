@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise ! ❤️</title>
+    <style>
+        /* LE STYLE (CSS) */
+        body {
+            background-color: #ffeef2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .card {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        img { width: 200px; border-radius: 10px; }
+        h1 { color: #ff4d6d; font-size: 24px; }
+        .buttons { margin-top: 20px; position: relative; height: 60px; }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { 
+            background-color: #ccc; 
+            color: white; 
+            position: absolute; 
+            left: 55%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp6eXp6eXp6eXp6eXp6eXp6eXp6eXp6eXp6eXp6eXp6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Chat">
+        <h1>Veux-tu être ma Valentine ?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Oui !</button>
+            <button id="noBtn">Non</button>
+        </div>
+    </div>
+
+    <script>
+        /* LA MAGIE (JS) */
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        // Le bouton "Non" s'enfuit
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            noBtn.style.position = 'fixed';
+        });
+
+        // Action sur le bouton "Oui"
+        yesBtn.addEventListener('click', () => {
+            alert("YAY ! ❤️ C'est promis !");
+            // Optionnel : change l'image ou redirige
+            document.querySelector('h1').innerText = "À bientôt mon amour ! 🥰";
+        });
+    </script>
+</body>
+</html>
